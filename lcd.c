@@ -153,25 +153,14 @@ char lcd_movimentoObstaculo(char pos){
     LCD_RS = 0;
     lcd_write(pos+1);
     lcd_puts(" ");
+ 
+    LCD_RS = 0;
+    lcd_write(pos--);
     
-    if(pos < 0x80){
-        return 0x8F;
-    }
-    else{
-        LCD_RS = 0;
-        lcd_write(pos+1);
-        lcd_puts(" ");
+    LCD_RS = 1;
+    lcd_write(0x09);
     
-        LCD_RS = 0;
-        lcd_write(pos--);
-    
-        LCD_RS = 1;
-        lcd_write(0x09);
-    
-        return pos;
-    }
-    
-    
+    return pos;
 }
 
 void lcd_movimentoPlayer(char movimento){

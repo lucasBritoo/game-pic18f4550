@@ -3,33 +3,33 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"74 /home/brito/Documentos/mlab/gamePIC18F.X/config.h
+"74 D:\GitHub\game-pic18f4550/config.h
 [v _configura configura `(v  1 e 1 0 ]
-"4 /opt/microchip/xc8/v2.32/pic/sources/c99/common/fleq.c
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-"62 /opt/microchip/xc8/v2.32/pic/sources/c99/common/float.c
+"62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"86 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftadd.c
+"86 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
-"54 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftdiv.c
+"54 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"62 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftmul.c
+"62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
-"19 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftsub.c
+"19 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"10 /opt/microchip/xc8/v2.32/pic/sources/c99/common/sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 4 0 ]
-"11 /opt/microchip/xc8/v2.32/pic/sources/c99/common/sprcdiv.c
+"11 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
-"8 /opt/microchip/xc8/v2.32/pic/sources/c99/common/sprcmul.c
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul32.c
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"91 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul64.c
+"91 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"38 /home/brito/Documentos/mlab/gamePIC18F.X/lcd.c
+"38 D:\GitHub\game-pic18f4550\lcd.c
 [v _lcd_write lcd_write `(v  1 e 1 0 ]
 [v i2_lcd_write lcd_write `(v  1 e 1 0 ]
 "52
@@ -44,13 +44,15 @@
 [v _lcd_desenhaObstaculo lcd_desenhaObstaculo `(v  1 e 1 0 ]
 "151
 [v _lcd_movimentoObstaculo lcd_movimentoObstaculo `(uc  1 e 1 0 ]
-"208
+"197
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
-"16 /home/brito/Documentos/mlab/gamePIC18F.X/main.c
+"18 D:\GitHub\game-pic18f4550\main.c
 [v _tmr tmr `IIH(v  1 e 1 0 ]
 "30
+[v _movA movA `(v  1 e 1 0 ]
+"44
 [v _main main `(v  1 e 1 0 ]
-[s S55 . 1 `uc 1 RB0 1 0 :1:0 
+[s S60 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -59,8 +61,8 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-"2483 /home/brito/Documentos/microchip/mplabx/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8/pic/include/proc/pic18f4550.h
-[s S64 . 1 `uc 1 INT0 1 0 :1:0 
+"2483 E:/Program Files (x86)/MPLAB/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h
+[s S69 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -68,11 +70,11 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S72 . 1 `uc 1 . 1 0 :3:0 
+[s S77 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S75 . 1 `S55 1 . 1 0 `S64 1 . 1 0 `S72 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES75  1 e 1 @3969 ]
+[u S80 . 1 `S60 1 . 1 0 `S69 1 . 1 0 `S77 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES80  1 e 1 @3969 ]
 "2705
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "2826
@@ -113,36 +115,54 @@
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
 "10446
 [v _RCIP RCIP `VEb  1 e 0 @31997 ]
-"13 /home/brito/Documentos/mlab/gamePIC18F.X/main.c
+"15 D:\GitHub\game-pic18f4550\main.c
 [v _envia envia `uc  1 e 1 0 ]
-"30
+"16
+[v _x x `i  1 e 2 0 ]
+"44
 [v _main main `(v  1 e 1 0 ]
 {
-"50
-[v main@flagA flagA `i  1 a 2 13 ]
-[v main@x x `i  1 a 2 11 ]
-"46
-[v main@posA2 posA2 `uc  1 a 1 20 ]
-[v main@posA1 posA1 `uc  1 a 1 19 ]
-[v main@posA3 posA3 `uc  1 a 1 18 ]
-[v main@posA4 posA4 `uc  1 a 1 17 ]
-[v main@posA5 posA5 `uc  1 a 1 16 ]
-[v main@posA6 posA6 `uc  1 a 1 15 ]
-"136
+"58
+[v main@a1 a1 `uc  1 a 1 35 ]
+"60
+[v main@flag6 flag6 `uc  1 a 1 34 ]
+[v main@flag5 flag5 `uc  1 a 1 33 ]
+[v main@flag4 flag4 `uc  1 a 1 32 ]
+[v main@flag3 flag3 `uc  1 a 1 31 ]
+[v main@flag2 flag2 `uc  1 a 1 30 ]
+"58
+[v main@a6 a6 `uc  1 a 1 29 ]
+[v main@a5 a5 `uc  1 a 1 28 ]
+[v main@a4 a4 `uc  1 a 1 27 ]
+[v main@a3 a3 `uc  1 a 1 26 ]
+[v main@a2 a2 `uc  1 a 1 25 ]
+"59
+[v main@p6 p6 `uc  1 a 1 24 ]
+[v main@p5 p5 `uc  1 a 1 23 ]
+[v main@p4 p4 `uc  1 a 1 22 ]
+[v main@p3 p3 `uc  1 a 1 21 ]
+[v main@p2 p2 `uc  1 a 1 20 ]
+[v main@p1 p1 `uc  1 a 1 19 ]
+"60
+[v main@flag1 flag1 `uc  1 a 1 18 ]
+"108
 } 0
-"91 /home/brito/Documentos/mlab/gamePIC18F.X/lcd.c
-[v _lcd_player lcd_player `(v  1 e 1 0 ]
+"30
+[v _movA movA `(v  1 e 1 0 ]
 {
-"122
+[v movA@p p `*.39uc  1 p 2 9 ]
+[v movA@a a `*.39uc  1 p 2 11 ]
+[v movA@flag flag `*.39uc  1 p 2 13 ]
+"42
 } 0
-"151
+"151 D:\GitHub\game-pic18f4550\lcd.c
 [v _lcd_movimentoObstaculo lcd_movimentoObstaculo `(uc  1 e 1 0 ]
 {
 [v lcd_movimentoObstaculo@pos pos `uc  1 a 1 wreg ]
 [v lcd_movimentoObstaculo@pos pos `uc  1 a 1 wreg ]
 "153
 [v lcd_movimentoObstaculo@pos pos `uc  1 a 1 8 ]
-"175
+"164
 } 0
 "62
 [v _lcd_puts lcd_puts `(v  1 e 1 0 ]
@@ -150,10 +170,15 @@
 [v lcd_puts@s s `*.25Cuc  1 p 2 6 ]
 "67
 } 0
-"208
+"91
+[v _lcd_player lcd_player `(v  1 e 1 0 ]
+{
+"122
+} 0
+"197
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
 {
-"234
+"223
 } 0
 "52
 [v _lcd_clear lcd_clear `(v  1 e 1 0 ]
@@ -174,19 +199,19 @@
 [v lcd_write@c c `uc  1 a 1 5 ]
 "45
 } 0
-"74 /home/brito/Documentos/mlab/gamePIC18F.X/config.h
+"74 D:\GitHub\game-pic18f4550/config.h
 [v _configura configura `(v  1 e 1 0 ]
 {
 "92
 } 0
-"16 /home/brito/Documentos/mlab/gamePIC18F.X/main.c
+"18 D:\GitHub\game-pic18f4550\main.c
 [v _tmr tmr `IIH(v  1 e 1 0 ]
 {
-"19
+"21
 [v tmr@serial serial `uc  1 a 1 3 ]
-"26
+"28
 } 0
-"72 /home/brito/Documentos/mlab/gamePIC18F.X/lcd.c
+"72 D:\GitHub\game-pic18f4550\lcd.c
 [v _lcd_putch lcd_putch `(v  1 e 1 0 ]
 {
 [v lcd_putch@c c `uc  1 a 1 wreg ]

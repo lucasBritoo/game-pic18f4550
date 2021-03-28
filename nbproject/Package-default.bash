@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/gamePIC18F.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=gamePIC18F.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=gamepic18f.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/game-pic18f4550.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=game-pic18f4550.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=game-pic18f4550/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/gamepic18f.x/bin
+makeDirectory ${TMPDIR}/game-pic18f4550/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/gamepic18f.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/game-pic18f4550.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/gamepic18f.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/game-pic18f4550.tar *
 checkReturnCode
 
 # Cleanup
