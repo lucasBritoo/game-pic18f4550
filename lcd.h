@@ -36,7 +36,11 @@ extern char lcd_movimentoObstaculo(char);
 
 extern void lcd_deslocaEsquerda(void);
 
-extern void lcd_desenhaObstaculo(void);
+extern void lcd_desenhaObstaculoA(void);
+
+extern void lcd_desenhaObstaculoB(void);
+
+extern void lcd_apaga(void);
 
 
 /*	Set the cursor position */

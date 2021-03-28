@@ -5665,7 +5665,11 @@ extern char lcd_movimentoObstaculo(char);
 
 extern void lcd_deslocaEsquerda(void);
 
-extern void lcd_desenhaObstaculo(void);
+extern void lcd_desenhaObstaculoA(void);
+
+extern void lcd_desenhaObstaculoB(void);
+
+extern void lcd_apaga(void);
 # 25 "lcd.c" 2
 # 37 "lcd.c"
 void
@@ -5765,13 +5769,22 @@ void lcd_desenhaPlayer(){
 
 }
 
-void lcd_desenhaObstaculo(){
+void lcd_desenhaObstaculoA(){
     LE0 = 0;
     lcd_write(0x8F);
 
     LE0 = 1;
     lcd_write(0x09);
 }
+
+void lcd_desenhaObstaculoB(){
+    LE0 = 0;
+    lcd_write(0xCF);
+
+    LE0 = 1;
+    lcd_write(0x09);
+}
+
 
 void lcd_deslocaEsquerda(){
 
@@ -5795,6 +5808,13 @@ char lcd_movimentoObstaculo(char pos){
     lcd_write(0x09);
 
     return pos;
+}
+
+void lcd_apaga(){
+    LE0 = 0;
+    lcd_write(0xC0);
+    lcd_puts(" ");
+
 }
 
 void lcd_movimentoPlayer(char movimento){

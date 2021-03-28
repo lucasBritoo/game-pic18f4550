@@ -41,18 +41,24 @@
 "91
 [v _lcd_player lcd_player `(v  1 e 1 0 ]
 "134
-[v _lcd_desenhaObstaculo lcd_desenhaObstaculo `(v  1 e 1 0 ]
-"151
+[v _lcd_desenhaObstaculoA lcd_desenhaObstaculoA `(v  1 e 1 0 ]
+"142
+[v _lcd_desenhaObstaculoB lcd_desenhaObstaculoB `(v  1 e 1 0 ]
+"160
 [v _lcd_movimentoObstaculo lcd_movimentoObstaculo `(uc  1 e 1 0 ]
-"197
+"175
+[v _lcd_apaga lcd_apaga `(v  1 e 1 0 ]
+"213
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
 "18 D:\GitHub\game-pic18f4550\main.c
 [v _tmr tmr `IIH(v  1 e 1 0 ]
 "30
 [v _movA movA `(v  1 e 1 0 ]
 "44
+[v _movB movB `(v  1 e 1 0 ]
+"58
 [v _main main `(v  1 e 1 0 ]
-[s S60 . 1 `uc 1 RB0 1 0 :1:0 
+[s S64 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -62,7 +68,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "2483 E:/Program Files (x86)/MPLAB/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h
-[s S69 . 1 `uc 1 INT0 1 0 :1:0 
+[s S73 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -70,11 +76,11 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S77 . 1 `uc 1 . 1 0 :3:0 
+[s S81 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S80 . 1 `S60 1 . 1 0 `S69 1 . 1 0 `S77 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES80  1 e 1 @3969 ]
+[u S84 . 1 `S64 1 . 1 0 `S73 1 . 1 0 `S81 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES84  1 e 1 @3969 ]
 "2705
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "2826
@@ -119,35 +125,57 @@
 [v _envia envia `uc  1 e 1 0 ]
 "16
 [v _x x `i  1 e 2 0 ]
-"44
+"58
 [v _main main `(v  1 e 1 0 ]
 {
-"58
-[v main@a1 a1 `uc  1 a 1 35 ]
-"60
-[v main@flag6 flag6 `uc  1 a 1 34 ]
-[v main@flag5 flag5 `uc  1 a 1 33 ]
-[v main@flag4 flag4 `uc  1 a 1 32 ]
-[v main@flag3 flag3 `uc  1 a 1 31 ]
-[v main@flag2 flag2 `uc  1 a 1 30 ]
-"58
-[v main@a6 a6 `uc  1 a 1 29 ]
-[v main@a5 a5 `uc  1 a 1 28 ]
-[v main@a4 a4 `uc  1 a 1 27 ]
-[v main@a3 a3 `uc  1 a 1 26 ]
-[v main@a2 a2 `uc  1 a 1 25 ]
-"59
-[v main@p6 p6 `uc  1 a 1 24 ]
-[v main@p5 p5 `uc  1 a 1 23 ]
+"72
+[v main@a1 a1 `uc  1 a 1 44 ]
+"75
+[v main@flagB5 flagB5 `uc  1 a 1 43 ]
+[v main@flagB4 flagB4 `uc  1 a 1 42 ]
+[v main@flagB3 flagB3 `uc  1 a 1 41 ]
+[v main@flagB2 flagB2 `uc  1 a 1 40 ]
+[v main@flagB1 flagB1 `uc  1 a 1 39 ]
+[v main@flagA4 flagA4 `uc  1 a 1 38 ]
+[v main@flagA3 flagA3 `uc  1 a 1 37 ]
+[v main@flagA2 flagA2 `uc  1 a 1 36 ]
+"72
+[v main@b5 b5 `uc  1 a 1 35 ]
+[v main@b4 b4 `uc  1 a 1 34 ]
+[v main@b3 b3 `uc  1 a 1 33 ]
+[v main@b2 b2 `uc  1 a 1 32 ]
+[v main@b1 b1 `uc  1 a 1 31 ]
+[v main@a4 a4 `uc  1 a 1 30 ]
+[v main@a3 a3 `uc  1 a 1 29 ]
+[v main@a2 a2 `uc  1 a 1 28 ]
+"73
+[v main@q5 q5 `uc  1 a 1 27 ]
+[v main@q4 q4 `uc  1 a 1 26 ]
+[v main@q3 q3 `uc  1 a 1 25 ]
+[v main@q2 q2 `uc  1 a 1 24 ]
+[v main@q1 q1 `uc  1 a 1 23 ]
 [v main@p4 p4 `uc  1 a 1 22 ]
 [v main@p3 p3 `uc  1 a 1 21 ]
 [v main@p2 p2 `uc  1 a 1 20 ]
 [v main@p1 p1 `uc  1 a 1 19 ]
-"60
-[v main@flag1 flag1 `uc  1 a 1 18 ]
-"108
+"75
+[v main@flagA1 flagA1 `uc  1 a 1 18 ]
+"144
 } 0
-"30
+"44
+[v _movB movB `(v  1 e 1 0 ]
+{
+[v movB@q q `*.39uc  1 p 2 9 ]
+[v movB@b b `*.39uc  1 p 2 11 ]
+[v movB@flag flag `*.39uc  1 p 2 13 ]
+"56
+} 0
+"175 D:\GitHub\game-pic18f4550\lcd.c
+[v _lcd_apaga lcd_apaga `(v  1 e 1 0 ]
+{
+"180
+} 0
+"30 D:\GitHub\game-pic18f4550\main.c
 [v _movA movA `(v  1 e 1 0 ]
 {
 [v movA@p p `*.39uc  1 p 2 9 ]
@@ -155,14 +183,14 @@
 [v movA@flag flag `*.39uc  1 p 2 13 ]
 "42
 } 0
-"151 D:\GitHub\game-pic18f4550\lcd.c
+"160 D:\GitHub\game-pic18f4550\lcd.c
 [v _lcd_movimentoObstaculo lcd_movimentoObstaculo `(uc  1 e 1 0 ]
 {
 [v lcd_movimentoObstaculo@pos pos `uc  1 a 1 wreg ]
 [v lcd_movimentoObstaculo@pos pos `uc  1 a 1 wreg ]
-"153
+"162
 [v lcd_movimentoObstaculo@pos pos `uc  1 a 1 8 ]
-"164
+"173
 } 0
 "62
 [v _lcd_puts lcd_puts `(v  1 e 1 0 ]
@@ -175,18 +203,23 @@
 {
 "122
 } 0
-"197
+"213
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
 {
-"223
+"239
 } 0
 "52
 [v _lcd_clear lcd_clear `(v  1 e 1 0 ]
 {
 "57
 } 0
+"142
+[v _lcd_desenhaObstaculoB lcd_desenhaObstaculoB `(v  1 e 1 0 ]
+{
+"148
+} 0
 "134
-[v _lcd_desenhaObstaculo lcd_desenhaObstaculo `(v  1 e 1 0 ]
+[v _lcd_desenhaObstaculoA lcd_desenhaObstaculoA `(v  1 e 1 0 ]
 {
 "140
 } 0

@@ -131,13 +131,22 @@ void lcd_desenhaPlayer(){
    
 }
 
-void lcd_desenhaObstaculo(){
+void lcd_desenhaObstaculoA(){
     LCD_RS = 0;
     lcd_write(0x8F);
     
     LCD_RS = 1;
     lcd_write(0x09);
 }
+
+void lcd_desenhaObstaculoB(){
+    LCD_RS = 0;
+    lcd_write(0xCF);
+    
+    LCD_RS = 1;
+    lcd_write(0x09);
+}
+
 
 void lcd_deslocaEsquerda(){
     
@@ -161,6 +170,13 @@ char lcd_movimentoObstaculo(char pos){
     lcd_write(0x09);
     
     return pos;
+}
+
+void lcd_apaga(){
+    LCD_RS = 0;
+    lcd_write(0xC0);
+    lcd_puts(" ");
+
 }
 
 void lcd_movimentoPlayer(char movimento){

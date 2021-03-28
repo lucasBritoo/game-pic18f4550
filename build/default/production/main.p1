@@ -55,6 +55,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35 ./lcd.h
 [; ;./lcd.h: 35: extern char lcd_movimentoObstaculo(char);
 [v _lcd_movimentoObstaculo `(uc ~T0 @X0 0 ef1`uc ]
+"43
+[; ;./lcd.h: 43: extern void lcd_apaga(void);
+[v _lcd_apaga `(v ~T0 @X0 0 ef ]
 [p mainexit ]
 "2705 E:/Program Files (x86)/MPLAB/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h
 [; ;E:/Program Files (x86)/MPLAB/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h: 2705: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
@@ -91,8 +94,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./lcd.h: 29: extern void lcd_player(void);
 [v _lcd_player `(v ~T0 @X0 0 ef ]
 "39
-[; ;./lcd.h: 39: extern void lcd_desenhaObstaculo(void);
-[v _lcd_desenhaObstaculo `(v ~T0 @X0 0 ef ]
+[; ;./lcd.h: 39: extern void lcd_desenhaObstaculoA(void);
+[v _lcd_desenhaObstaculoA `(v ~T0 @X0 0 ef ]
+"41
+[; ;./lcd.h: 41: extern void lcd_desenhaObstaculoB(void);
+[v _lcd_desenhaObstaculoB `(v ~T0 @X0 0 ef ]
 [v F3152 `(v ~T0 @X0 1 tf1`ul ]
 "203 E:/Program Files (x86)/MPLAB/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\pic18.h
 [v __delay `JF3152 ~T0 @X0 0 e ]
@@ -785,13 +791,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31
 [; ;main.c: 31:     *p = lcd_movimentoObstaculo(*p);
 [e = *U _p ( _lcd_movimentoObstaculo (1 *U _p ]
-"32
-[; ;main.c: 32:     if(*a >= 16){
+"33
+[; ;main.c: 33:     if(*a >= 16){
 [e $ ! >= -> *U _a `i -> 16 `i 373  ]
 {
-"33
-[; ;main.c: 33:         *p = 0x8F;
-[e = *U _p -> -> 143 `i `uc ]
 "34
 [; ;main.c: 34:         *a = 0;
 [e = *U _a -> -> 0 `i `uc ]
@@ -799,212 +802,322 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 35:         *flag = 0;
 [e = *U _flag -> -> 0 `i `uc ]
 "36
-[; ;main.c: 36:     }
+[; ;main.c: 36:         *p = 0x8F;
+[e = *U _p -> -> 143 `i `uc ]
+"38
+[; ;main.c: 38:     }
 }
 [e $U 374  ]
-"37
-[; ;main.c: 37:     else{
+"39
+[; ;main.c: 39:     else{
 [e :U 373 ]
 {
-"39
-[; ;main.c: 39:         *a = *a + 1;
-[e = *U _a -> + -> *U _a `i -> 1 `i `uc ]
 "40
-[; ;main.c: 40:     }
+[; ;main.c: 40:         *a = *a + 1;
+[e = *U _a -> + -> *U _a `i -> 1 `i `uc ]
+"41
+[; ;main.c: 41:     }
 }
 [e :U 374 ]
 "42
 [; ;main.c: 42: }
 [e :UE 372 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
 "44
-[; ;main.c: 44: void main(void) {
+[; ;main.c: 44: void movB(char *q, char *b , char *flag){
+[v _movB `(v ~T0 @X0 1 ef3`*uc`*uc`*uc ]
+{
+[e :U _movB ]
+[v _q `*uc ~T0 @X0 1 r1 ]
+[v _b `*uc ~T0 @X0 1 r2 ]
+[v _flag `*uc ~T0 @X0 1 r3 ]
+[f ]
+"45
+[; ;main.c: 45:     *q = lcd_movimentoObstaculo(*q);
+[e = *U _q ( _lcd_movimentoObstaculo (1 *U _q ]
+"47
+[; ;main.c: 47:     if(*b >= 16){
+[e $ ! >= -> *U _b `i -> 16 `i 376  ]
+{
+"48
+[; ;main.c: 48:         lcd_apaga();
+[e ( _lcd_apaga ..  ]
+"49
+[; ;main.c: 49:         *b = 0;
+[e = *U _b -> -> 0 `i `uc ]
+"50
+[; ;main.c: 50:         *flag = 0;
+[e = *U _flag -> -> 0 `i `uc ]
+"51
+[; ;main.c: 51:         *q = 0xCF;
+[e = *U _q -> -> 207 `i `uc ]
+"52
+[; ;main.c: 52:     }
+}
+[e $U 377  ]
+"53
+[; ;main.c: 53:     else *b = *b + 1;
+[e :U 376 ]
+[e = *U _b -> + -> *U _b `i -> 1 `i `uc ]
+[e :U 377 ]
+"56
+[; ;main.c: 56: }
+[e :UE 375 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"58
+[; ;main.c: 58: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"45
-[; ;main.c: 45:     configura();
+"59
+[; ;main.c: 59:     configura();
 [e ( _configura ..  ]
-"46
-[; ;main.c: 46:     PORTD = 0;
+"60
+[; ;main.c: 60:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"47
-[; ;main.c: 47:     PORTE = 0;
+"61
+[; ;main.c: 61:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"49
-[; ;main.c: 49:     lcd_init();
+"63
+[; ;main.c: 63:     lcd_init();
 [e ( _lcd_init ..  ]
-"50
-[; ;main.c: 50:     lcd_clear();
+"64
+[; ;main.c: 64:     lcd_clear();
 [e ( _lcd_clear ..  ]
-"51
-[; ;main.c: 51:     PORTBbits.RB0 = 0;
+"65
+[; ;main.c: 65:     PORTBbits.RB0 = 0;
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-"52
-[; ;main.c: 52:     PORTBbits.RB2 = 0;
+"66
+[; ;main.c: 66:     PORTBbits.RB2 = 0;
 [e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
-"55
-[; ;main.c: 55:     lcd_player();
+"69
+[; ;main.c: 69:     lcd_player();
 [e ( _lcd_player ..  ]
-"56
-[; ;main.c: 56:     lcd_desenhaObstaculo();
-[e ( _lcd_desenhaObstaculo ..  ]
-"58
-[; ;main.c: 58:     char a1, a2, a3, a4, a5, a6;
+"70
+[; ;main.c: 70:     lcd_desenhaObstaculoA();
+[e ( _lcd_desenhaObstaculoA ..  ]
+"72
+[; ;main.c: 72:     char a1, a2, a3, a4, b1, b2, b3, b4, b5;
 [v _a1 `uc ~T0 @X0 1 a ]
 [v _a2 `uc ~T0 @X0 1 a ]
 [v _a3 `uc ~T0 @X0 1 a ]
 [v _a4 `uc ~T0 @X0 1 a ]
-[v _a5 `uc ~T0 @X0 1 a ]
-[v _a6 `uc ~T0 @X0 1 a ]
-"59
-[; ;main.c: 59:     char p1, p2, p3, p4, p5, p6;
+[v _b1 `uc ~T0 @X0 1 a ]
+[v _b2 `uc ~T0 @X0 1 a ]
+[v _b3 `uc ~T0 @X0 1 a ]
+[v _b4 `uc ~T0 @X0 1 a ]
+[v _b5 `uc ~T0 @X0 1 a ]
+"73
+[; ;main.c: 73:     char p1, p2, p3, p4, q1, q2, q3, q4, q5;
 [v _p1 `uc ~T0 @X0 1 a ]
 [v _p2 `uc ~T0 @X0 1 a ]
 [v _p3 `uc ~T0 @X0 1 a ]
 [v _p4 `uc ~T0 @X0 1 a ]
-[v _p5 `uc ~T0 @X0 1 a ]
-[v _p6 `uc ~T0 @X0 1 a ]
-"60
-[; ;main.c: 60:     char flag1, flag2, flag3, flag4, flag5, flag6;
-[v _flag1 `uc ~T0 @X0 1 a ]
-[v _flag2 `uc ~T0 @X0 1 a ]
-[v _flag3 `uc ~T0 @X0 1 a ]
-[v _flag4 `uc ~T0 @X0 1 a ]
-[v _flag5 `uc ~T0 @X0 1 a ]
-[v _flag6 `uc ~T0 @X0 1 a ]
-"62
-[; ;main.c: 62:     p1 = p2 = p3 = p4 = p5 = p6 = 0x8F;
-[e = _p1 = _p2 = _p3 = _p4 = _p5 = _p6 -> -> 143 `i `uc ]
-"63
-[; ;main.c: 63:     a1 = a2 = a3 = a4 = a5 = a6 = 0;
-[e = _a1 = _a2 = _a3 = _a4 = _a5 = _a6 -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     flag1 = flag2 = flag3 = flag4 = flag5 = flag6 = 0;
-[e = _flag1 = _flag2 = _flag3 = _flag4 = _flag5 = _flag6 -> -> 0 `i `uc ]
-"66
-[; ;main.c: 66:     x =0;
-[e = _x -> 0 `i ]
-"68
-[; ;main.c: 68:     while(1){
-[e :U 377 ]
-{
-"70
-[; ;main.c: 70:        switch(a1){
-[e $U 380  ]
-{
-"71
-[; ;main.c: 71:            case 4:
-[e :U 381 ]
-"72
-[; ;main.c: 72:                lcd_desenhaObstaculo();
-[e ( _lcd_desenhaObstaculo ..  ]
-"73
-[; ;main.c: 73:                flag2 = 1;
-[e = _flag2 -> -> 1 `i `uc ]
-"74
-[; ;main.c: 74:                break;
-[e $U 379  ]
+[v _q1 `uc ~T0 @X0 1 a ]
+[v _q2 `uc ~T0 @X0 1 a ]
+[v _q3 `uc ~T0 @X0 1 a ]
+[v _q4 `uc ~T0 @X0 1 a ]
+[v _q5 `uc ~T0 @X0 1 a ]
 "75
-[; ;main.c: 75:            case 7:
-[e :U 382 ]
-"76
-[; ;main.c: 76:                lcd_desenhaObstaculo();
-[e ( _lcd_desenhaObstaculo ..  ]
+[; ;main.c: 75:     char flagA1, flagA2, flagA3, flagA4, flagB1, flagB2, flagB3, flagB4, flagB5;
+[v _flagA1 `uc ~T0 @X0 1 a ]
+[v _flagA2 `uc ~T0 @X0 1 a ]
+[v _flagA3 `uc ~T0 @X0 1 a ]
+[v _flagA4 `uc ~T0 @X0 1 a ]
+[v _flagB1 `uc ~T0 @X0 1 a ]
+[v _flagB2 `uc ~T0 @X0 1 a ]
+[v _flagB3 `uc ~T0 @X0 1 a ]
+[v _flagB4 `uc ~T0 @X0 1 a ]
+[v _flagB5 `uc ~T0 @X0 1 a ]
 "77
-[; ;main.c: 77:                flag3 = 1;
-[e = _flag3 -> -> 1 `i `uc ]
+[; ;main.c: 77:     p1 = p2 = p3 = p4 = 0x8F;
+[e = _p1 = _p2 = _p3 = _p4 -> -> 143 `i `uc ]
 "78
-[; ;main.c: 78:                break;
-[e $U 379  ]
-"79
-[; ;main.c: 79:            case 9:
-[e :U 383 ]
+[; ;main.c: 78:     q1 = q2 = q3 = q4 = q5 = 0xCF;
+[e = _q1 = _q2 = _q3 = _q4 = _q5 -> -> 207 `i `uc ]
 "80
-[; ;main.c: 80:                lcd_desenhaObstaculo();
-[e ( _lcd_desenhaObstaculo ..  ]
-"81
-[; ;main.c: 81:                flag4 = 1;
-[e = _flag4 -> -> 1 `i `uc ]
+[; ;main.c: 80:     a1 = a2 = a3 = a4 = b1 = b2 = b3 = b4 = b5 = 0;
+[e = _a1 = _a2 = _a3 = _a4 = _b1 = _b2 = _b3 = _b4 = _b5 -> -> 0 `i `uc ]
 "82
-[; ;main.c: 82:                break;
-[e $U 379  ]
-"83
-[; ;main.c: 83:            case 12:
-[e :U 384 ]
+[; ;main.c: 82:     flagA1 = flagA2 = flagA3 = flagA4 = flagB1 = flagB2 = flagB3 = flagB4 = flagB5 = 0;
+[e = _flagA1 = _flagA2 = _flagA3 = _flagA4 = _flagB1 = _flagB2 = _flagB3 = _flagB4 = _flagB5 -> -> 0 `i `uc ]
 "84
-[; ;main.c: 84:                lcd_desenhaObstaculo();
-[e ( _lcd_desenhaObstaculo ..  ]
-"85
-[; ;main.c: 85:                flag5 = 1;
-[e = _flag5 -> -> 1 `i `uc ]
+[; ;main.c: 84:     x =0;
+[e = _x -> 0 `i ]
 "86
-[; ;main.c: 86:                break;
-[e $U 379  ]
-"87
-[; ;main.c: 87:            case 15:
-[e :U 385 ]
-"88
-[; ;main.c: 88:                lcd_desenhaObstaculo();
-[e ( _lcd_desenhaObstaculo ..  ]
-"89
-[; ;main.c: 89:                flag6 = 1;
-[e = _flag6 -> -> 1 `i `uc ]
-"90
-[; ;main.c: 90:                break;
-[e $U 379  ]
-"91
-[; ;main.c: 91:        }
-}
-[e $U 379  ]
+[; ;main.c: 86:     while(1){
 [e :U 380 ]
-[e [\ -> _a1 `i , $ -> 4 `i 381
- , $ -> 7 `i 382
- , $ -> 9 `i 383
- , $ -> 12 `i 384
- , $ -> 15 `i 385
- 379 ]
-[e :U 379 ]
+{
+"88
+[; ;main.c: 88:        switch(a1){
+[e $U 383  ]
+{
+"89
+[; ;main.c: 89:            case 2:
+[e :U 384 ]
+"90
+[; ;main.c: 90:                lcd_desenhaObstaculoB();
+[e ( _lcd_desenhaObstaculoB ..  ]
+"91
+[; ;main.c: 91:                flagB1 = 1;
+[e = _flagB1 -> -> 1 `i `uc ]
+"92
+[; ;main.c: 92:                break;
+[e $U 382  ]
 "93
-[; ;main.c: 93:        if(flag2 == 1) movA(&p2, &a2, &flag2);
-[e $ ! == -> _flag2 `i -> 1 `i 386  ]
-[e ( _movA (3 , , &U _p2 &U _a2 &U _flag2 ]
-[e :U 386 ]
+[; ;main.c: 93:            case 4:
+[e :U 385 ]
+"94
+[; ;main.c: 94:                lcd_desenhaObstaculoA();
+[e ( _lcd_desenhaObstaculoA ..  ]
 "95
-[; ;main.c: 95:        if(flag3 == 1) movA(&p3, &a3, &flag3);
-[e $ ! == -> _flag3 `i -> 1 `i 387  ]
-[e ( _movA (3 , , &U _p3 &U _a3 &U _flag3 ]
-[e :U 387 ]
+[; ;main.c: 95:                flagA2 = 1;
+[e = _flagA2 -> -> 1 `i `uc ]
+"96
+[; ;main.c: 96:                break;
+[e $U 382  ]
 "97
-[; ;main.c: 97:        if(flag4 == 1) movA(&p4, &a4, &flag4);
-[e $ ! == -> _flag4 `i -> 1 `i 388  ]
-[e ( _movA (3 , , &U _p4 &U _a4 &U _flag4 ]
-[e :U 388 ]
+[; ;main.c: 97:            case 6:
+[e :U 386 ]
+"98
+[; ;main.c: 98:                lcd_desenhaObstaculoB();
+[e ( _lcd_desenhaObstaculoB ..  ]
 "99
-[; ;main.c: 99:        if(flag5 == 1) movA(&p5, &a5, &flag5);
-[e $ ! == -> _flag5 `i -> 1 `i 389  ]
-[e ( _movA (3 , , &U _p5 &U _a5 &U _flag5 ]
-[e :U 389 ]
+[; ;main.c: 99:                flagB2 = 1;
+[e = _flagB2 -> -> 1 `i `uc ]
+"100
+[; ;main.c: 100:                break;
+[e $U 382  ]
 "101
-[; ;main.c: 101:        if(flag6 == 1) movA(&p6, &a6, &flag6);
-[e $ ! == -> _flag6 `i -> 1 `i 390  ]
-[e ( _movA (3 , , &U _p6 &U _a6 &U _flag6 ]
-[e :U 390 ]
+[; ;main.c: 101:            case 8:
+[e :U 387 ]
+"102
+[; ;main.c: 102:                lcd_desenhaObstaculoA();
+[e ( _lcd_desenhaObstaculoA ..  ]
 "103
-[; ;main.c: 103:        movA(&p1, &a1, &flag1);
-[e ( _movA (3 , , &U _p1 &U _a1 &U _flag1 ]
+[; ;main.c: 103:                flagA3 = 1;
+[e = _flagA3 -> -> 1 `i `uc ]
+"104
+[; ;main.c: 104:                break;
+[e $U 382  ]
 "105
-[; ;main.c: 105:       _delay((unsigned long)((2000)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 105:            case 10:
+[e :U 388 ]
 "106
-[; ;main.c: 106:     }
-}
-[e :U 376 ]
-[e $U 377  ]
-[e :U 378 ]
+[; ;main.c: 106:                lcd_desenhaObstaculoB();
+[e ( _lcd_desenhaObstaculoB ..  ]
+"107
+[; ;main.c: 107:                flagB3 = 1;
+[e = _flagB3 -> -> 1 `i `uc ]
 "108
-[; ;main.c: 108: }
-[e :UE 375 ]
+[; ;main.c: 108:                break;
+[e $U 382  ]
+"109
+[; ;main.c: 109:             case 11:
+[e :U 389 ]
+"110
+[; ;main.c: 110:                lcd_desenhaObstaculoB();
+[e ( _lcd_desenhaObstaculoB ..  ]
+"111
+[; ;main.c: 111:                flagB4 = 1;
+[e = _flagB4 -> -> 1 `i `uc ]
+"112
+[; ;main.c: 112:                break;
+[e $U 382  ]
+"113
+[; ;main.c: 113:             case 13:
+[e :U 390 ]
+"114
+[; ;main.c: 114:                lcd_desenhaObstaculoA();
+[e ( _lcd_desenhaObstaculoA ..  ]
+"115
+[; ;main.c: 115:                flagA4 = 1;
+[e = _flagA4 -> -> 1 `i `uc ]
+"116
+[; ;main.c: 116:                break;
+[e $U 382  ]
+"117
+[; ;main.c: 117:            case 15:
+[e :U 391 ]
+"118
+[; ;main.c: 118:                lcd_desenhaObstaculoB();
+[e ( _lcd_desenhaObstaculoB ..  ]
+"119
+[; ;main.c: 119:                flagB5 = 1;
+[e = _flagB5 -> -> 1 `i `uc ]
+"120
+[; ;main.c: 120:                break;
+[e $U 382  ]
+"121
+[; ;main.c: 121:        }
+}
+[e $U 382  ]
+[e :U 383 ]
+[e [\ -> _a1 `i , $ -> 2 `i 384
+ , $ -> 4 `i 385
+ , $ -> 6 `i 386
+ , $ -> 8 `i 387
+ , $ -> 10 `i 388
+ , $ -> 11 `i 389
+ , $ -> 13 `i 390
+ , $ -> 15 `i 391
+ 382 ]
+[e :U 382 ]
+"123
+[; ;main.c: 123:        if(flagA2 == 1) movA(&p2, &a2, &flagA2);
+[e $ ! == -> _flagA2 `i -> 1 `i 392  ]
+[e ( _movA (3 , , &U _p2 &U _a2 &U _flagA2 ]
+[e :U 392 ]
+"125
+[; ;main.c: 125:        if(flagA3 == 1) movA(&p3, &a3, &flagA3);
+[e $ ! == -> _flagA3 `i -> 1 `i 393  ]
+[e ( _movA (3 , , &U _p3 &U _a3 &U _flagA3 ]
+[e :U 393 ]
+"127
+[; ;main.c: 127:        if(flagA4 == 1) movA(&p4, &a4, &flagA4);
+[e $ ! == -> _flagA4 `i -> 1 `i 394  ]
+[e ( _movA (3 , , &U _p4 &U _a4 &U _flagA4 ]
+[e :U 394 ]
+"129
+[; ;main.c: 129:        if(flagB1 == 1) movB(&q1, &b1, &flagB1);
+[e $ ! == -> _flagB1 `i -> 1 `i 395  ]
+[e ( _movB (3 , , &U _q1 &U _b1 &U _flagB1 ]
+[e :U 395 ]
+"131
+[; ;main.c: 131:        if(flagB2 == 1) movB(&q2, &b2, &flagB2);
+[e $ ! == -> _flagB2 `i -> 1 `i 396  ]
+[e ( _movB (3 , , &U _q2 &U _b2 &U _flagB2 ]
+[e :U 396 ]
+"133
+[; ;main.c: 133:        if(flagB3 == 1) movB(&q3, &b3, &flagB3);
+[e $ ! == -> _flagB3 `i -> 1 `i 397  ]
+[e ( _movB (3 , , &U _q3 &U _b3 &U _flagB3 ]
+[e :U 397 ]
+"135
+[; ;main.c: 135:        if(flagB4 == 1) movB(&q4, &b4, &flagB4);
+[e $ ! == -> _flagB4 `i -> 1 `i 398  ]
+[e ( _movB (3 , , &U _q4 &U _b4 &U _flagB4 ]
+[e :U 398 ]
+"137
+[; ;main.c: 137:        if(flagB5 == 1) movB(&q5, &b5, &flagB5);
+[e $ ! == -> _flagB5 `i -> 1 `i 399  ]
+[e ( _movB (3 , , &U _q5 &U _b5 &U _flagB5 ]
+[e :U 399 ]
+"139
+[; ;main.c: 139:       movA(&p1, &a1, &flagA1);
+[e ( _movA (3 , , &U _p1 &U _a1 &U _flagA1 ]
+"141
+[; ;main.c: 141:       _delay((unsigned long)((1000)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"142
+[; ;main.c: 142:     }
+}
+[e :U 379 ]
+[e $U 380  ]
+[e :U 381 ]
+"144
+[; ;main.c: 144: }
+[e :UE 378 ]
 }
